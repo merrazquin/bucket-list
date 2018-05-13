@@ -33,7 +33,7 @@ const orm = {
     connection.query('INSERT INTO ?? (' + printQuestionMarks(cols.length, true) + ') VALUES (' + printQuestionMarks(vals.length) + ')',
       [table].concat(cols, vals), (err, result) => handleResults(err, result, callback))
   },
-  updateOne: function (table, objColVals, condition, cb) {
+  updateOne: function (table, objColVals, condition, callback) {
     connection.query('UPDATE ?? SET ? WHERE ' + condition,
       [table, objColVals], (err, result) => handleResults(err, result, callback))
   }

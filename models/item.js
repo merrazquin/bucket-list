@@ -2,14 +2,14 @@
 const orm = require('../config/orm.js'),
   item = {
     all: function (callback) {
-      orm.all('items', callback)
+      orm.selectAll('items', callback)
     },
     // The variables cols and vals are arrays.
     create: function (cols, vals, callback) {
-      orm.create('items', cols, vals, callback)
+      orm.insertOne('items', cols, vals, callback)
     },
     update: function (objColVals, condition, callback) {
-      orm.update('items', objColVals, condition, callback)
+      orm.updateOne('items', objColVals, condition, callback)
     }
   }
 

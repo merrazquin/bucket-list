@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
 })
 
 router.post('/api/items', function (req, res) {
-  item.create(['item', 'accomplished'], [req.body.item, req.body.accomplished], function (result) {
+  item.create(['item', 'accomplished'], [req.body.item, req.body.accomplished || 0], function (result) {
     res.json({ id: result.insertId })
   })
 })
