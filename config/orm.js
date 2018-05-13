@@ -25,14 +25,34 @@ function handleResults(err, result, callback) {
 
 // Object for all our SQL statement functions.
 const orm = {
+  /**
+   * Select all items from {table}
+   * @param {string} table
+   * @param {function} callback
+   */
   selectAll: function (table, callback) {
     connection.query('SELECT * FROM ??',
       table, (err, result) => handleResults(err, result, callback))
   },
+
+  /**
+   * Inserts a row into {table}
+   * @param {string} table
+   * @param {Array} cols
+   * @param {Array} vals
+   * @param {function} callback
+   */
   insertOne: function (table, cols, vals, callback) {
     connection.query('INSERT INTO ?? (' + printQuestionMarks(cols.length, true) + ') VALUES (' + printQuestionMarks(vals.length) + ')',
       [table].concat(cols, vals), (err, result) => handleResults(err, result, callback))
   },
+
+  /**
+   * Updates a row in {table} using key/value pairs in {objColVals}
+   * @param {string} table
+   * @param {object} objColVals
+   * @param {function} callback
+   */
   updateOne: function (table, objColVals, condition, callback) {
     connection.query('UPDATE ?? SET ? WHERE ' + condition,
       [table, objColVals], (err, result) => handleResults(err, result, callback))

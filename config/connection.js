@@ -1,5 +1,6 @@
 require('dotenv').config()
 const mysql = require('mysql'),
+  // use the environment var JAWSDB_URL if it exists
   connection = mysql.createConnection(process.env.JAWSDB_URL || {
     host: 'localhost',
     port: 3306,
@@ -8,7 +9,7 @@ const mysql = require('mysql'),
     database: 'bucketList_db'
   })
 
-// Make connection.
+// Make the connection
 connection.connect(function (err) {
   if (err) {
     console.error('error connecting: ' + err.stack)
