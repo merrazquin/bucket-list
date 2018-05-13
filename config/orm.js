@@ -24,7 +24,7 @@ function handleResults(err, result, callback) {
 }
 
 // Object for all our SQL statement functions.
-var orm = {
+const orm = {
   selectAll: function (table, callback) {
     connection.query('SELECT * FROM ??',
       table, (err, result) => handleResults(err, result, callback))
