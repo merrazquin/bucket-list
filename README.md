@@ -15,3 +15,6 @@ Keep track of your bucket list items
 * Express
 * MySQL
 * Handlebars
+
+## Screenshot
+<img src="readme-images/screenshot.png">
