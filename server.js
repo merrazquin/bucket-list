@@ -1,7 +1,7 @@
 const express = require('express'),
   bodyParser = require('body-parser'),
   exphbs = require('express-handlebars'),
-  routes = require('./controllers/itemsController.js')
+  routes = require('./controllers/itemsController.js'),
   PORT = process.env.PORT || 3000,
   app = express()
 
